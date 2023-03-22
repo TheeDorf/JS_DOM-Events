@@ -27,15 +27,22 @@ const a1 = document.createElement("a");
 a1.textContent = "I am a <a> tag";
 // BONUS: Add a link href to the <a>
 a1.setAttribute('href', 'https://espn.com');
-a1.target= "_blank"
+a1.target= "_blank";
+
 // TODO: Insert the created <a> in the parent but before the <p> you just created using the element.insertBefore() method
 par1.insertBefore(a1,p1);
 /*----------- Exercise #3: REMOVING/REPLACING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Replace the "Child Node" with a new <p> element that reads "New Child Node"
+let parent = document.querySelector("#exercise-container3");
+let pElement = document.querySelector("#N1");
+let newPEl = document.createElement("p");
+newPEl.textContent = "New Child Node";
 
+parent.replaceChild(newPEl, pElement);
 // TODO: Remove the "New Child Node"
-
+setTimeout(()=>{
+    newPEl.remove()},5000)
 /*----------- Exercise #4: LIST ITEMS ----------- */
 // Use the following array of values to generate a list on the DOM
 
