@@ -45,14 +45,21 @@ setTimeout(()=>{
     newPEl.remove()},5000)
 /*----------- Exercise #4: LIST ITEMS ----------- */
 // Use the following array of values to generate a list on the DOM
-
 let list = [ "apples", "bananas", "carrots", "dragon fruit", "eggplant", "fish", "grapes", "honey", "ice bag", "juice (any kind)" ];
 
 
+
 // TODO: Create an unordered list element
-
+const container = document.querySelector("#container");
+const unL = document.createElement("ul");
 // TODO: Iterate over the array values, and create a list item element for each
+list.forEach ((value) =>{
+    let item = document.createElement("li");
+    item.textContent = value;
+    unL.appendChild(item);
+});
 
+container.appendChild(unL);
 // TODO: Append the new list items to the unordered list element
 
 // TODO: Append the unordered list to the `div#container` under exercise 4 
@@ -63,3 +70,27 @@ let list = [ "apples", "bananas", "carrots", "dragon fruit", "eggplant", "fish",
 // -> "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user"
 // This div should be a 'modal' that covers the main content on the screen
 // BONUS: The modal popup should be able to be closed. Refactor for this functionality
+
+function show(){
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+    const modalCard = document.createElement("div");
+    modalCard.classList.add("modal-card");
+    const closeButton = document.createElement("button");
+    closeButton.innerText= "close";
+    closeButton.addEventListener("click", function(){
+        modal.remove();
+    });
+    const message = document.createElement("p");
+    message.innerText= "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
+    modalCard.appendChild(message);
+    modalCard.appendChild(closeButton);
+
+    modal.appendChild(modalCard);
+
+    document.body.appendChild(modal);
+
+}
+
+const button = document.getElementById("btn");
+button.addEventListener("click",show);
