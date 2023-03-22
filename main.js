@@ -73,7 +73,8 @@ container.appendChild(unL);
 
 function show(){
     let modal = document.createElement("div");
-    modal.classList.add("modal");
+    modal.id = "modal";
+    // modal.classList.add("modal");
     const modalCard = document.createElement("div");
     modalCard.classList.add("modal-card");
     const closeButton = document.createElement("button");
