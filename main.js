@@ -2,23 +2,34 @@ console.log("Script attached");
 /*----------- Exercise #1: SELECTING/MANIPULATING ELEMENTS -----------*/
 
 // Select Node #1 and change the text to: "I used the getElementById("node1") method to access this"
-
+document.getElementById("node1").textContent= `I used the getElementById("node1") method to access this.`;
 // Select Node #2 and change the text to: "I used the getElementByClassName("node2") method to access this" */
-
+const part2 = document.getElementsByClassName("node2");
+for (let i = 0; i < part2.length; i++) {
+  part2[i].textContent = "I used the getElementByClassName(`node2`) method to access this.";
+}
 // Select ALL the h3 tags and change the text to: "I used the getElementByTagName("h3") method to access all of these" */
-
+const h3Tags = document.getElementsByTagName("h3");
+    for (let i=0; i < h3Tags.length; i++){
+        h3Tags[i].textContent = `I used the getElementByTagName("h3") method to access all of these`
+    };
 /*----------- Exercise #2: CREATING/APPENDING/INSERTING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Create a paragraph element using this document.createElement() and put this text inside "This node was created using the createElement() method"
 
+let p1 = document.createElement("p");
+p1.textContent = "This node was created using the createElement() method";
 // TODO: Append the created node to the parent node using the element.appendChild() method
-
+const par1 = document.querySelector("#parent");
+par1.appendChild(p1);
 // TODO: Create a <a> element using this document.createElement() and put this text inside "I am a <a> tag"
-
+const a1 = document.createElement("a");
+a1.textContent = "I am a <a> tag";
 // BONUS: Add a link href to the <a>
-
+a1.setAttribute('href', 'https://espn.com');
+a1.target= "_blank"
 // TODO: Insert the created <a> in the parent but before the <p> you just created using the element.insertBefore() method
-
+par1.insertBefore(a1,p1);
 /*----------- Exercise #3: REMOVING/REPLACING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Replace the "Child Node" with a new <p> element that reads "New Child Node"
